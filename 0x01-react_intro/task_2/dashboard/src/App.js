@@ -12,12 +12,12 @@ function App() {
         <p>Login to access the full dashboard</p>
         <form>
           <div className='form-field'>
-          <label htmlFor='email'>Email</label>
-          <input type='email' id='email' placeholder='Please enter your email' />
+          <label htmlFor='email'>Email:</label>
+          <input type='email' id='email'  />
           </div>
           <div className='form-field'>
-          <label htmlFor='password'>Password</label>
-          <input type='password' id='password' placeholder='Please enter your password' />
+          <label htmlFor='password'>Password:</label>
+          <input type='password' id='password'  />
           </div>
           <div className='form-submit'>
           <button>OK</button>

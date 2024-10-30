@@ -4,9 +4,12 @@
   padding: 0;
   box-sizing: border-box;
 }
-
+body{
+  padding: 0 32px;
+}
 .App-main {
   height: 100vh;
+  margin-top: 16px;
 }
 
 .App-header {
@@ -29,56 +32,41 @@
 
 .App-body {
   padding: 48px;
-  height: 57%;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
+  height: 57%;  
 }
 
 .App-body form {  
-  
-  width: fit-content;
+  display: flex;
+  gap: 12px;
+  padding: 16px 0;
 }
 
 .App-body form .form-field {
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
-  gap: 32px;
-}
-.App-body form .form-field label{
-  display: flex;
-  justify-content: space-between;
-  padding: 8px 0;
+ display: flex;
+ gap: 12px;
+ align-items: center;
+ 
 }
 
 
 .App-body form .form-field input {
-
-  padding: 8px 12px;
-  width: 300px;
-  border-radius: 8px;
+  padding: 2px 8px;
+  border-radius: 0px;
   border: 1px solid grey
 }
 
-.App-body form .form-submit {
-  padding: 8px 0;
-}
+
 .App-body form .form-submit button{
-  padding: 8px 32px;
-  border-radius: 8px;
-  color: white;
-  background-color: #4c35e0;
-  font-weight: bold;
-  border: 1px solid #4c35e0;
-}
-.App-body form .form-submit button:hover{
-  padding: 8px 32px;
-  border-radius: 8px;
+  padding: 2px 8px;
+  border: 1px solid gray;
+  border-radius: 4px;  
   background-color: white;
-  color: #4c35e0;
-  font-weight: bold;
-  border: 1px solid #4c35e0;
+}
+
+.App-body form .form-submit button:hover{
+  background-color: gray;
+  color: white;
+
   transition:ease-out 300ms;
 }
 
