@@ -1,0 +1,23 @@
+.Notifications{
+    border: 2px dashed #E0354B;
+    padding: 24px 8px;
+    margin-top: 16px;
+}
+.Notifications button {
+    background-color: transparent;
+    border: none;
+}
+.Notifications button img{
+    width: 12px;
+    height: 12px;
+}
+.Notifications ul{
+    margin-left: 32px;
+    margin-top: 16px;
+}
+.Notifications ul li[data='default'] {
+    color: blue;
+}
+.Notifications ul li[data='urgent'] {
+    color: red;
+}
