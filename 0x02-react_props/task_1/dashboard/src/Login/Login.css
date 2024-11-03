@@ -1,0 +1,39 @@
+  .App-body {
+      padding: 48px;
+      height: 57%;
+  }
+
+  .App-body form {
+      display: flex;
+      gap: 12px;
+      padding: 16px 0;
+  }
+
+  .App-body form .form-field {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+
+  }
+
+
+  .App-body form .form-field input {
+      padding: 2px 8px;
+      border-radius: 0px;
+      border: 1px solid grey
+  }
+
+
+  .App-body form .form-submit button {
+      padding: 2px 8px;
+      border: 1px solid gray;
+      border-radius: 4px;
+      background-color: white;
+  }
+
+  .App-body form .form-submit button:hover {
+      background-color: gray;
+      color: white;
+
+      transition: ease-out 300ms;
+  }
