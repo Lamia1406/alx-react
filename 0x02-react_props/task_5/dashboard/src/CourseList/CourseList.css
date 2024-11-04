@@ -1,0 +1,14 @@
+#CourseList{
+    margin: 48px;
+    margin-bottom: 20%;
+    width: calc(100% - 48px * 2);
+    border: 1px solid gray; 
+}
+table#CourseList thead tr:nth-child(2){
+    text-align: left;
+}
+#CourseList thead th{
+    padding: 4px 0;
+    border-bottom: 2px solid rgb(209, 209, 209) ;
+   
+}
