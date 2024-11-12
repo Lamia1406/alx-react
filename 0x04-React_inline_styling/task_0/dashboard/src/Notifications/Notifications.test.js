@@ -48,7 +48,7 @@ describe('Notifications Component', () => {
     });
 
     it('does not display menuItem', () => {
-      expect(component.find('div.menuItem').exists()).toBe(true);
+      expect(component.find('div.menuItem').exists()).toBe(false);
     });
 
     it('displays Notifications', () => {

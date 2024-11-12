@@ -8,10 +8,7 @@ import PropTypes from "prop-types";
 export default function Notifications({ displayDrawer, listNotifications }) {
   return (
     <div style={{ position: "absolute", right: "32px" }}>
-      <div className="menuItem">
-        <p>Your notifications</p>
-      </div>
-      {displayDrawer && (
+      {displayDrawer ? (
         <div className="Notifications">
           <button
             style={{ float: "right" }}
@@ -36,7 +33,9 @@ export default function Notifications({ displayDrawer, listNotifications }) {
             )}
           </ul>
         </div>
-      )}
+      ):  <div className="menuItem">
+      <p>Your notifications</p>
+    </div>}
     </div>
   );
 }
