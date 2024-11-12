@@ -5,3 +5,7 @@ export default function BodySection({title, children}) {
         {children}
     </div>
 }
+BodySection.propTypes = {
+	title: PropTypes.string,
+	children: PropTypes.node
+};
