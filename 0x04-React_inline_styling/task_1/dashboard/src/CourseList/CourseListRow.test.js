@@ -1,9 +1,11 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import CourseListRow from './CourseListRow';
-
+import {StyleSheetTestUtils} from "aphrodite"
 describe('CourseListRow component tests', () => {
-
+    beforeAll(() => {
+        StyleSheetTestUtils.suppressStyleInjection();
+      });
   it('renders without crashing', () => {
     const component = shallow(<CourseListRow textFirstCell='test'/>);
     expect(component).toBeDefined();

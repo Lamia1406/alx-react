@@ -8,10 +8,7 @@ import "./Notifications.css"
 export default function Notifications({ displayDrawer, listNotifications }) {
   return (
     <div>
-      <div className={`${css(NotificationsStyle.menuItem)} menuItem`}>
-        <p>Your notifications</p>
-      </div>
-      {displayDrawer && (
+      {displayDrawer ? (
         <div className={`${css(NotificationsStyle.Notifications)} Notifications`}>
           <button className={css(NotificationsStyle.closeIcon)}
             style={{ float: "right" }}
@@ -36,7 +33,10 @@ export default function Notifications({ displayDrawer, listNotifications }) {
             )}
           </ul>
         </div>
-      )}
+      ): <div className={`${css(NotificationsStyle.menuItem)} menuItem`}>
+      <p>Your notifications</p>
+    </div>
+      }
     </div>
   );
 }
