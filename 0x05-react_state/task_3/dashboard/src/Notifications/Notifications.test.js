@@ -102,7 +102,6 @@ describe('Notifications Component', () => {
   
       jest.restoreAllMocks();
     });
-  
    
   });
 
