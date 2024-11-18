@@ -9,7 +9,7 @@ import Login from '../Login/Login';
 import { StyleSheetTestUtils } from 'aphrodite';
 beforeAll(() => {
   global.alert = jest.fn();  
-    StyleSheetTestUtils.suppressStyleInjection();
+  StyleSheetTestUtils.suppressStyleInjection();
 });
 describe('App component', () => {
   let component;
@@ -31,29 +31,25 @@ describe('App component', () => {
   });
 
   it('does not render courselist if logged out is false', () => {
-    component.setProps({ isLoggedIn: false });
-    expect(component.contains(<CourseList />)).toBe(false);
+    component.setState({ user: { isLoggedIn: false } });
+    expect(component.find(CourseList).length).toBe(0);
   });
 
   it('renders courselist if logged in is true', () => {
-    const listCourses = [
-      { id: 1, name: 'ES6', credit: 60 },
-      { id: 2, name: 'Webpack', credit: 20 },
-      { id: 3, name: 'React', credit: 40 },
-    ];
-    component.setProps({ isLoggedIn: true });
-    expect(component.contains(<CourseList listCourses={listCourses}/>)).toBe(true);
-    expect(component.contains(<Login />)).toBe(false);
+    
+    component.setState({ user: { isLoggedIn: true } });
+    expect(component.find(CourseList).length).toBe(1);
+    expect(component.find(Login).length).toBe(0);
   });
 
   it('calls logOut when Ctrl + h is pressed', () => {
-    const logOutMock = jest.fn();
-    component.setProps({ logOut: logOutMock });
+    const initialState = component.state().user.isLoggedIn;
+    component.setState({ user: { isLoggedIn: true } });
 
     const event = new KeyboardEvent('keydown', { key: 'h', ctrlKey: true });
     document.dispatchEvent(event);
 
-    expect(logOutMock).toHaveBeenCalled();
+    expect(component.state().user.isLoggedIn).toBe(false)
   });
   it('verifies that the default state for displayDrawer is false', () => {
 		expect(component.state().displayDrawer).toEqual(false);
@@ -66,4 +62,22 @@ describe('App component', () => {
 		component.instance().handleHideDrawer();
 		expect(component.state().displayDrawer).toEqual(false);
 	});
+  it('verifies that the logIn function updates the state correctly', () => {
+    const mockEmail = 'test@holberton.com';
+    const mockPassword = 'password123';
+    component.instance().logIn(mockEmail, mockPassword);
+
+    expect(component.state().user.email).toBe(mockEmail);
+    expect(component.state().user.password).toBe(mockPassword);
+    expect(component.state().user.isLoggedIn).toBe(true);
+  });
+
+  it('verifies that the logOut function updates the state correctly', () => {
+    component.setState({ user: { isLoggedIn: true, email: 'test@holberton.com' } });
+
+    component.instance().logOut();
+
+    expect(component.state().user.isLoggedIn).toBe(false);
+    expect(component.state().user.email).toBe('');
+  });
 });
