@@ -55,4 +55,15 @@ describe('App component', () => {
 
     expect(logOutMock).toHaveBeenCalled();
   });
+  it('verifies that the default state for displayDrawer is false', () => {
+		expect(component.state().displayDrawer).toEqual(false);
+	});
+  it('verifies that after calling handleDisplayDrawer, the state should now be true', () => {
+		component.instance().handleDisplayDrawer();
+		expect(component.state().displayDrawer).toEqual(true);
+	});
+  it('verifies that after calling handleHideDrawer, the state should now be false', () => {
+		component.instance().handleHideDrawer();
+		expect(component.state().displayDrawer).toEqual(false);
+	});
 });
