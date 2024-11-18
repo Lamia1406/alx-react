@@ -6,14 +6,14 @@ class Header extends React.Component{
   render() {
     const {user, logOut} = this.context
     return (
-      <div className={css(HeaderStyle.Header)}>
+      <header className={css(HeaderStyle.Header)}>
         <img src={logo} alt='Holberton Logo' className={css(HeaderStyle.img)} />
         <h1 className={css(HeaderStyle.h1)}>School dashboard</h1>
         {
           user.isLoggedIn && <p id='logoutSection'>Welcome {user.email}
           <a onClick={logOut}>(logout)</a></p>
         }
-      </div>
+      </header>
 
   );
   }
