@@ -1,6 +1,6 @@
 import React from 'react';
 import Notifications from './Notifications';
-import { shallow } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import { getLatestNotification } from '../utils/utils';
 import { StyleSheetTestUtils } from 'aphrodite';
 describe('Notifications Component', () => {
@@ -61,7 +61,23 @@ describe('Notifications Component', () => {
     expect(component.find('div.menuItem').childAt(0).html()).toEqual(
       '<p>Your notifications</p>'
     );
+  
   });
+  it('verifies that clicking on the menu item calls handleHideDrawer', () => {
+    const handleHideDrawer = jest.fn();
+    const component = mount(
+      <Notifications
+      displayDrawer={true} 
+      handleHideDrawer={handleHideDrawer}
+      />
+    );
+
+    component.find('button').simulate('click');
+    expect(handleHideDrawer).toHaveBeenCalled();
+
+    jest.restoreAllMocks();
+  }); 
+
 
   describe('when displayDrawer is false', () => {
     beforeEach(() => {
@@ -71,5 +87,23 @@ describe('Notifications Component', () => {
     it('does not display notifications', () => {
       expect(component.find('div.Notifications').exists()).toBe(false);
     });
+    it('verifies that clicking on the menu item calls handleDisplayDrawer', () => {
+      const handleDisplayDrawer = jest.fn();
+      const handleHideDrawer = jest.fn();
+      const component = mount(
+        <Notifications
+        displayDrawer={false}
+        handleDisplayDrawer={handleDisplayDrawer}
+        />
+      );
+  
+      component.find('.menuItem').simulate('click');
+      expect(handleDisplayDrawer).toHaveBeenCalled();
+  
+      jest.restoreAllMocks();
+    });
+  
+   
   });
+
 });
